@@ -9,10 +9,10 @@ try:
             with open('north_data/employees_data.csv') as file:
                 csv_reader = csv.DictReader(file)
                 for row in csv_reader:
-                    cur.execute('INSERT INTO employee VALUES (%s, %s, %s, %s, %s, %s)', (
+                    cur.execute('INSERT INTO employees VALUES (%s, %s, %s, %s, %s, %s)', (
                     row['employee_id'], row['first_name'], row['last_name'], row['title'], row['birth_date'],
                     row['notes']))
-                cur.execute("SELECT * FROM employee")
+                cur.execute("SELECT * FROM employees")
                 rows = cur.fetchall()
                 for row in rows:
                     print(row)
